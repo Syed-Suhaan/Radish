@@ -1,0 +1,19 @@
+# Binaries (compiled Go programs)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary
+*.test
+
+# Output of go build
+/bin/
+/build/
+/dist/
+
+# IDE settings
+.vscode/
+.idea/
+*.log
