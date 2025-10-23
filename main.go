@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"log"
 	"net"
@@ -17,17 +16,7 @@ func main() {
 		connection, err := listener.Accept()
 		if err != nil {
 			log.Println("Failed to accept the connection:", err)
-		} else {
-			fmt.Println("New client connected!")
 		}
-		reader := bufio.NewReader(connection)
-		message, err := reader.ReadString('\n')
-		if err != nil {
-			log.Println("Failed to read from client:", err)
-		} else {
-			fmt.Printf("Received: %s", message)
-			connection.Write([]byte(message))
-		}
-		connection.Close()
+		go handleConnection(connection)
 	}
 }
