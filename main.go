@@ -16,6 +16,7 @@ func main() {
 		connection, err := listener.Accept()
 		if err != nil {
 			log.Println("Failed to accept the connection:", err)
+			continue
 		}
 		go handleConnection(connection)
 	}
